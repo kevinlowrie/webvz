@@ -15,8 +15,11 @@ class User < ActiveRecord::Base
       if user.password != passwd 
           user = nil
       end
+      # return the user here if we're good
+      return user
     end
-    user  
+    # else we want to fail closed
+    return false  
   end
   
 end
